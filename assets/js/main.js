@@ -103,6 +103,7 @@ prevButtonEl.addEventListener('click', function () {
 // const pEl = document.createElement('p')
 // const imgEl = document.createElement('img')
 const sliderEl = document.querySelector('.slider')
+const sliderTopEl = document.querySelector('.slider_top')
 // sliderEl.append(h2El, pEl, imgEl)
 
 // let activeImage = 0;
@@ -113,22 +114,23 @@ const sliderEl = document.querySelector('.slider')
 //     // const activeSlide = ` <img class="${i === slideEl ? 'active_slide' : ''}" src="./assets/${images.img}" alt="">`
 //     // console.log(activeSlide, images.img);
 // }
-
+const nextButtonEl = document.querySelector('.next');
+const prevButtonEl = document.querySelector('.prev');
 let currentSlide = 0;
+clickBtnIncrement(nextButtonEl)
 slides.forEach((slide, i) => {
     console.log(slide);
     // console.log(slide.image);
     // console.log(i === currentSlide);
-
-    const h2El = `<h2>${slide.title}</h2>`
-    const pEl = `<p>${slide.text}</p>`
+    console.log(currentSlide);
+    const h2El = `<h2 class="${isCurrentSlide(i, currentSlide)}">${slide.title}</h2>`
+    const pEl = `<p class="${isCurrentSlide(i, currentSlide)}">${slide.text}</p>`
     const imgEl = `<img class="${isCurrentSlide(i, currentSlide)}" src="./assets/${slide.image}">`
     // console.log(imgEl);
-    sliderEl.insertAdjacentHTML('beforeend', h2El)
-    sliderEl.insertAdjacentHTML('beforeend', pEl)
+    sliderTopEl.insertAdjacentHTML('beforeend', h2El)
+    sliderTopEl.insertAdjacentHTML('beforeend', pEl)
     sliderEl.insertAdjacentHTML('beforeend', imgEl)
 });
-
 
 
 function isCurrentSlide(i, currentSlide) {
@@ -136,4 +138,27 @@ function isCurrentSlide(i, currentSlide) {
         return "active"
     }
     return ""
-} 
+}
+
+
+function clickBtnIncrement(btn) {
+    btn.addEventListener('click', function () {
+        console.log("hai cliccato next");
+        currentSlide++
+        console.log(currentSlide);
+    })
+}
+
+function clickBtnDecrement(btn) {
+    btn.addEventListener('click', function () {
+        console.log("hai cliccato next");
+        currentSlide--
+        console.log(currentSlide);
+    })
+}
+
+
+
+prevButtonEl.addEventListener('click', function () {
+    // console.log("hai cliccato prev");
+})
