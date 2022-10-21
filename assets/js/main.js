@@ -21,23 +21,23 @@
 // #region arrayImages
 const slides = [
     {
-        img: 'img/01.webp',
+        image: 'img/01.jpg',
         title: 'Marvel\'s Spiderman Miles Morale',
         text: 'Experience the rise of Miles Morales as the new hero masters incredible, explosive new powers to become his own Spider-Man.',
     }, {
-        img: 'img/02.webp',
+        image: 'img/02.jpg',
         title: 'Ratchet & Clank: Rift Apart',
         text: 'Go dimension-hopping with Ratchet and Clank as they take on an evil emperor from another reality.',
     }, {
-        img: 'img/03.webp',
+        image: 'img/03.jpg',
         title: 'Fortnite',
         text: "Grab all of your friends and drop into Epic Games Fortnite, a massive 100 - player face - off that combines looting, crafting, shootouts and chaos.",
     }, {
-        img: 'img/04.webp',
+        image: 'img/04.jpg',
         title: 'Stray',
         text: 'Lost, injured and alone, a stray cat must untangle an ancient mystery to escape a long-forgotten city',
     }, {
-        img: 'img/05.webp',
+        image: 'img/05.jpg',
         title: "Marvel's Avengers",
         text: 'Marvel\'s Avengers is an epic, third-person, action-adventure game that combines an original, cinematic story with single-player and co-operative gameplay.',
     }
@@ -102,7 +102,7 @@ prevButtonEl.addEventListener('click', function () {
 // const h2El = document.createElement('h2')
 // const pEl = document.createElement('p')
 // const imgEl = document.createElement('img')
-// const sliderEl = document.querySelector('.slider')
+const sliderEl = document.querySelector('.slider')
 // sliderEl.append(h2El, pEl, imgEl)
 
 // let activeImage = 0;
@@ -113,15 +113,19 @@ prevButtonEl.addEventListener('click', function () {
 //     // const activeSlide = ` <img class="${i === slideEl ? 'active_slide' : ''}" src="./assets/${images.img}" alt="">`
 //     // console.log(activeSlide, images.img);
 // }
-// slides.forEach((slide, i) => {
-//     console.log(slide, i);
-//     // console.log(i);
-//     // if (i === slides) {
-//     //     console.log("è uguale");
-//     // }
-//     // console.log(i === slides);
 
-// });
+
+slides.forEach((slide) => {
+    // console.log(slide);
+    // console.log(slide.image);
+    const h2El = `<h2>${slide.title}</h2>`
+    const pEl = `<p>${slide.text}</p>`
+    const imgEl = `<img class="" src="./assets/${slide.image}">`
+    console.log(imgEl);
+    sliderEl.insertAdjacentHTML('beforeend', h2El)
+    sliderEl.insertAdjacentHTML('beforeend', pEl)
+    sliderEl.insertAdjacentHTML('beforeend', imgEl)
+});
 
 
 

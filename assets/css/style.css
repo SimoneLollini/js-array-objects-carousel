@@ -28,6 +28,12 @@
     object-fit: cover;
 }
 
+.slider img:not(.active),
+.slider h2:not(.active),
+.slider p:not(.active) {
+    display: none;
+}
+
 .controls {
     display: flex;
     justify-content: space-around;
