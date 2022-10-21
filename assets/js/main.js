@@ -114,14 +114,16 @@ const sliderEl = document.querySelector('.slider')
 //     // console.log(activeSlide, images.img);
 // }
 
-
-slides.forEach((slide) => {
-    // console.log(slide);
+let currentSlide = 0;
+slides.forEach((slide, i) => {
+    console.log(slide);
     // console.log(slide.image);
+    // console.log(i === currentSlide);
+
     const h2El = `<h2>${slide.title}</h2>`
     const pEl = `<p>${slide.text}</p>`
-    const imgEl = `<img class="" src="./assets/${slide.image}">`
-    console.log(imgEl);
+    const imgEl = `<img class="${isCurrentSlide(i, currentSlide)}" src="./assets/${slide.image}">`
+    // console.log(imgEl);
     sliderEl.insertAdjacentHTML('beforeend', h2El)
     sliderEl.insertAdjacentHTML('beforeend', pEl)
     sliderEl.insertAdjacentHTML('beforeend', imgEl)
@@ -129,3 +131,9 @@ slides.forEach((slide) => {
 
 
 
+function isCurrentSlide(i, currentSlide) {
+    if (i === currentSlide) {
+        return "active"
+    }
+    return ""
+} 
